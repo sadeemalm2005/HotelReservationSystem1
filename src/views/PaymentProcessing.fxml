@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PaymentProcessingController"
+            style="-fx-background-color: #FAF8F3;">
+
+    <!-- Top Section -->
+    <top>
+        <VBox spacing="15.0" style="-fx-background-color: #FAF8F3; -fx-border-color: #321F08; -fx-border-width: 0 0 2 0;">
+            <padding>
+                <Insets bottom="20.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <Label text="Payment Processing" style="-fx-text-fill: #321F08;">
+                <font>
+                    <Font name="Times New Roman Bold" size="26.0"/>
+                </font>
+            </Label>
+
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+
+                <Label text="Reservation ID:" style="-fx-text-fill: #321F08;">
+                    <font>
+                        <Font name="Times New Roman" size="14.0"/>
+                    </font>
+                </Label>
+
+                <TextField fx:id="reservationIdField" promptText="Enter ID" prefWidth="150.0"
+                          style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 14; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <padding>
+                        <Insets bottom="8.0" left="10.0" right="10.0" top="8.0"/>
+                    </padding>
+                </TextField>
+
+                <Button fx:id="searchButton" text="Search" onAction="#handleSearch" prefWidth="100.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0"/>
+                    </padding>
+                </Button>
+
+                <Button fx:id="backButton" text="Back" onAction="#handleBack" prefWidth="80.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0"/>
+                    </padding>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center Section -->
+    <center>
+        <HBox spacing="25.0" style="-fx-background-color: #FAF8F3;">
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+            </padding>
+
+            <!-- Left: Reservation Summary -->
+            <VBox spacing="15.0" prefWidth="380.0" style="-fx-background-color: white; -fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-border-radius: 5; -fx-background-radius: 5;">
+                <padding>
+                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                </padding>
+
+                <Label text="Reservation Summary" style="-fx-text-fill: #321F08;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0"/>
+                    </font>
+                </Label>
+
+                <GridPane hgap="15.0" vgap="12.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="130.0"/>
+                        <ColumnConstraints minWidth="180.0"/>
+                    </columnConstraints>
+
+                    <Label text="Guest Name:" style="-fx-text-fill: #321F08;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="guestNameLabel" text="-" style="-fx-text-fill: #321F08;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+
+                    <Label text="Room Number:" style="-fx-text-fill: #321F08;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="roomNumberLabel" text="-" style="-fx-text-fill: #321F08;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+
+                    <Label text="Check-In Date:" style="-fx-text-fill: #321F08;" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="checkInDateLabel" text="-" style="-fx-text-fill: #321F08;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+
+                    <Label text="Check-Out Date:" style="-fx-text-fill: #321F08;" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="checkOutDateLabel" text="-" style="-fx-text-fill: #321F08;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+
+                    <Label text="Room Cost:" style="-fx-text-fill: #321F08;" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="roomCostLabel" text="-" style="-fx-text-fill: #321F08;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+
+                    <Label text="Services Cost:" style="-fx-text-fill: #321F08;" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="servicesCostLabel" text="-" style="-fx-text-fill: #321F08;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+
+                    <Label text="Total Amount:" style="-fx-text-fill: #321F08;" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                        <font><Font name="Times New Roman Bold" size="16.0"/></font>
+                    </Label>
+                    <Label fx:id="totalAmountLabel" text="-" style="-fx-text-fill: #321F08;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <font><Font name="Times New Roman Bold" size="16.0"/></font>
+                    </Label>
+                </GridPane>
+
+                <Separator style="-fx-background-color: #D3D3D3;">
+                    <VBox.margin>
+                        <Insets top="10.0" bottom="10.0"/>
+                    </VBox.margin>
+                </Separator>
+
+                <Label text="Services" style="-fx-text-fill: #321F08;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                </Label>
+
+                <ListView fx:id="servicesListView" prefHeight="120.0" style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-font-family: 'Times New Roman'; -fx-font-size: 12;"/>
+            </VBox>
+
+            <!-- Right: Payment Details -->
+            <VBox spacing="18.0" prefWidth="380.0" style="-fx-background-color: white; -fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-border-radius: 5; -fx-background-radius: 5;">
+                <padding>
+                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                </padding>
+
+                <Label text="Payment Details" style="-fx-text-fill: #321F08;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0"/>
+                    </font>
+                </Label>
+
+                <VBox spacing="6.0">
+                    <Label text="Payment Method:" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <ComboBox fx:id="paymentMethodComboBox" prefWidth="300.0"
+                             style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </VBox>
+
+                <VBox spacing="6.0">
+                    <Label text="Cardholder Name:" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <TextField fx:id="cardholderNameField"
+                              style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 13; -fx-border-radius: 3; -fx-background-radius: 3;">
+                        <padding><Insets bottom="8.0" left="10.0" right="10.0" top="8.0"/></padding>
+                    </TextField>
+                </VBox>
+
+                <VBox spacing="6.0">
+                    <Label text="Card Number:" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <TextField fx:id="cardNumberField"
+                              style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 13; -fx-border-radius: 3; -fx-background-radius: 3;">
+                        <padding><Insets bottom="8.0" left="10.0" right="10.0" top="8.0"/></padding>
+                    </TextField>
+                </VBox>
+
+                <HBox spacing="12.0">
+                    <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                        <Label text="Expiry Date (MM/YY):" style="-fx-text-fill: #321F08;">
+                            <font><Font name="Times New Roman" size="14.0"/></font>
+                        </Label>
+                        <TextField fx:id="expiryDateField"
+                                  style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 13; -fx-border-radius: 3; -fx-background-radius: 3;">
+                            <padding><Insets bottom="8.0" left="10.0" right="10.0" top="8.0"/></padding>
+                        </TextField>
+                    </VBox>
+
+                    <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                        <Label text="CVV:" style="-fx-text-fill: #321F08;">
+                            <font><Font name="Times New Roman" size="14.0"/></font>
+                        </Label>
+                        <TextField fx:id="cvvField"
+                                  style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 13; -fx-border-radius: 3; -fx-background-radius: 3;">
+                            <padding><Insets bottom="8.0" left="10.0" right="10.0" top="8.0"/></padding>
+                        </TextField>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="6.0">
+                    <Label text="Amount to Pay:" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman" size="14.0"/></font>
+                    </Label>
+                    <TextField fx:id="amountField"
+                              style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 13; -fx-border-radius: 3; -fx-background-radius: 3;">
+                        <padding><Insets bottom="8.0" left="10.0" right="10.0" top="8.0"/></padding>
+                    </TextField>
+                </VBox>
+
+                <Button fx:id="processPaymentButton" text="Process Payment" onAction="#handleProcessPayment" prefWidth="300.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="12.0" left="20.0" right="20.0" top="12.0"/>
+                    </padding>
+                    <VBox.margin>
+                        <Insets top="15.0"/>
+                    </VBox.margin>
+                </Button>
+
+                <Label fx:id="messageLabel" wrapText="true" style="-fx-text-fill: #321F08;" prefHeight="60.0">
+                    <font>
+                        <Font name="Times New Roman" size="13.0"/>
+                    </font>
+                </Label>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

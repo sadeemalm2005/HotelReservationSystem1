@@ -1,0 +1,296 @@
+@startuml Hotel Reservation System - Class Diagram
+
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FAF8F3
+skinparam class {
+    BackgroundColor White
+    BorderColor #321F08
+    ArrowColor #321F08
+}
+
+title Hotel Reservation System - UML Class Diagram
+
+package "Model Classes" {
+    abstract class User {
+        - userId: int
+        - username: String
+        - password: String
+        - email: String
+        - phone: String
+        - role: String
+        - createdDate: Date
+        --
+        + getUserId(): int
+        + setUserId(int): void
+        + getUsername(): String
+        + setUsername(String): void
+        + getEmail(): String
+        + getRole(): String
+    }
+
+    class Guest {
+        - guestId: int
+        - firstName: String
+        - lastName: String
+        - idNumber: String
+        - address: String
+        --
+        + searchRooms(): List<Room>
+        + makeReservation(): void
+        + viewReservations(): List<Reservation>
+        + cancelReservation(int): void
+    }
+
+    class Receptionist {
+        - receptionistId: int
+        - department: String
+        - shift: String
+        --
+        + checkIn(int): void
+        + checkOut(int): void
+        + processPayment(int): void
+        + viewAllReservations(): List<Reservation>
+    }
+
+    class Admin {
+        - adminId: int
+        - accessLevel: String
+        --
+        + manageUsers(): void
+        + generateReports(): void
+        + manageRoomTypes(): void
+        + manageServices(): void
+        + viewStatistics(): Map<String, Object>
+    }
+
+    class Room {
+        - roomId: int
+        - roomNumber: String
+        - typeId: int
+        - status: String
+        - price: double
+        --
+        + getRoomId(): int
+        + getRoomNumber(): String
+        + getStatus(): String
+        + isAvailable(): boolean
+        + setStatus(String): void
+        + getPrice(): double
+    }
+
+    class RoomType {
+        - typeId: int
+        - typeName: String
+        - description: String
+        - basePrice: double
+        - capacity: int
+        --
+        + compareTo(RoomType): int
+        + getTypeId(): int
+        + getTypeName(): String
+        + getBasePrice(): double
+        + getCapacity(): int
+    }
+
+    class Reservation {
+        - reservationId: int
+        - guestId: int
+        - roomId: int
+        - checkInDate: Date
+        - checkOutDate: Date
+        - totalPrice: double
+        - status: String
+        - bookingDate: Date
+        --
+        + calculateTotal(): double
+        + updateStatus(String): void
+        + compareTo(Reservation): int
+        + getReservationId(): int
+        + getTotalPrice(): double
+    }
+
+    class Payment {
+        - paymentId: int
+        - reservationId: int
+        - amount: double
+        - paymentMethod: String
+        - paymentDate: Date
+        - status: String
+        --
+        + processPayment(): void
+        + refund(): void
+        + getPaymentId(): int
+        + getAmount(): double
+        + getStatus(): String
+    }
+
+    class Service {
+        - serviceId: int
+        - serviceName: String
+        - description: String
+        - price: double
+        --
+        + getServiceId(): int
+        + getServiceName(): String
+        + getPrice(): double
+        + setPrice(double): void
+    }
+}
+
+package "Controllers" {
+    class LoginController {
+        - usernameField: TextField
+        - passwordField: PasswordField
+        - messageLabel: Label
+        --
+        + handleLogin(): void
+        - authenticateUser(String, String): User
+        - redirectToDashboard(User): void
+    }
+
+    class GuestDashboardController {
+        - currentGuest: Guest
+        - reservationsTable: TableView
+        - welcomeLabel: Label
+        --
+        + setCurrentGuest(Guest): void
+        + loadReservations(): void
+        + handleSearch(): void
+        + handleViewReservations(): void
+    }
+
+    class AdminDashboardController {
+        - currentAdmin: Admin
+        - totalGuestsLabel: Label
+        - totalRoomsLabel: Label
+        - occupiedRoomsLabel: Label
+        - activeReservationsLabel: Label
+        - totalRevenueLabel: Label
+        --
+        + setCurrentAdmin(Admin): void
+        + loadStatistics(): void
+        + handleUserManagement(): void
+        + handleReports(): void
+    }
+
+    class RoomSearchController {
+        - currentGuest: Guest
+        - checkInDatePicker: DatePicker
+        - checkOutDatePicker: DatePicker
+        - roomTypeComboBox: ComboBox
+        - availableRoomsTable: TableView
+        --
+        + setCurrentGuest(Guest): void
+        + handleSearch(): void
+        + handleBookRoom(): void
+        - searchAvailableRooms(): List<Room>
+    }
+
+    class UserManagementController {
+        - currentAdmin: Admin
+        - usersTable: TableView
+        - roleFilterComboBox: ComboBox
+        - searchField: TextField
+        - existingUsernames: HashSet<String>
+        --
+        + setCurrentAdmin(Admin): void
+        + loadUsers(): void
+        + handleSearch(): void
+        + handleAdd(): void
+        + handleUpdate(): void
+        + handleDelete(): void
+    }
+
+    class ReportsController {
+        - currentAdmin: Admin
+        - reportTypeComboBox: ComboBox
+        - startDatePicker: DatePicker
+        - endDatePicker: DatePicker
+        - reportTextArea: TextArea
+        --
+        + handleGenerate(): void
+        + handleExport(): void
+        - generateRevenueReport(): void
+        - generateOccupancyReport(): void
+    }
+}
+
+package "Database" {
+    class DatabaseConnection {
+        - {static} DB_URL: String
+        - {static} DB_USER: String
+        - {static} DB_PASSWORD: String
+        --
+        + {static} getConnection(): Connection
+        + {static} closeConnection(Connection): void
+    }
+}
+
+package "Exceptions" {
+    class AuthenticationException
+    class DatabaseException
+    class InvalidDateException
+    class ReservationConflictException
+}
+
+' Inheritance Relationships
+User <|-- Guest
+User <|-- Receptionist
+User <|-- Admin
+
+' Composition
+Room *-- RoomType : has-a
+
+' Associations
+Guest "1" --> "0..*" Reservation : creates
+Room "1" --> "0..*" Reservation : referenced by
+Reservation "1" --> "1" Payment : has
+
+' Interface Implementation
+RoomType ..|> Comparable
+
+' Controller Dependencies
+LoginController ..> User : uses
+GuestDashboardController ..> Guest : uses
+GuestDashboardController ..> Reservation : uses
+AdminDashboardController ..> Admin : uses
+RoomSearchController ..> Guest : uses
+RoomSearchController ..> Room : uses
+RoomSearchController ..> Reservation : uses
+UserManagementController ..> Admin : uses
+UserManagementController ..> User : uses
+ReportsController ..> Admin : uses
+
+' Database Usage
+LoginController ..> DatabaseConnection : uses
+GuestDashboardController ..> DatabaseConnection : uses
+AdminDashboardController ..> DatabaseConnection : uses
+RoomSearchController ..> DatabaseConnection : uses
+UserManagementController ..> DatabaseConnection : uses
+ReportsController ..> DatabaseConnection : uses
+
+note right of User
+    Abstract base class
+    Demonstrates INHERITANCE
+    and POLYMORPHISM
+end note
+
+note right of RoomType
+    Implements Comparable
+    Used in TreeSet for
+    automatic sorting by price
+end note
+
+note right of UserManagementController
+    Uses HashSet to ensure
+    username uniqueness
+    Demonstrates Collections
+end note
+
+note bottom of DatabaseConnection
+    Singleton pattern
+    Used by all controllers
+    for database access
+end note
+
+@enduml

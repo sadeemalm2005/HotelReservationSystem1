@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RoomSearchController"
+            style="-fx-background-color: #FAF8F3;">
+
+    <!-- Top Section -->
+    <top>
+        <VBox spacing="15.0" style="-fx-background-color: #FAF8F3; -fx-border-color: #321F08; -fx-border-width: 0 0 2 0;">
+            <padding>
+                <Insets bottom="20.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <Label text="Search &amp; Book Rooms" style="-fx-text-fill: #321F08;">
+                <font>
+                    <Font name="Times New Roman Bold" size="26.0"/>
+                </font>
+            </Label>
+
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+
+                <VBox spacing="5.0">
+                    <Label text="Check-In Date" style="-fx-text-fill: #321F08;">
+                        <font>
+                            <Font name="Times New Roman" size="13.0"/>
+                        </font>
+                    </Label>
+                    <DatePicker fx:id="checkInDatePicker" prefWidth="150.0"
+                               style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </VBox>
+
+                <VBox spacing="5.0">
+                    <Label text="Check-Out Date" style="-fx-text-fill: #321F08;">
+                        <font>
+                            <Font name="Times New Roman" size="13.0"/>
+                        </font>
+                    </Label>
+                    <DatePicker fx:id="checkOutDatePicker" prefWidth="150.0"
+                               style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </VBox>
+
+                <VBox spacing="5.0">
+                    <Label text="Room Type" style="-fx-text-fill: #321F08;">
+                        <font>
+                            <Font name="Times New Roman" size="13.0"/>
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="roomTypeComboBox" prefWidth="130.0"
+                             style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </VBox>
+
+                <Button fx:id="searchButton" text="Search" onAction="#handleSearch" prefWidth="100.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets top="18.0"/>
+                    </HBox.margin>
+                </Button>
+
+                <Button fx:id="backButton" text="Back" onAction="#handleBack" prefWidth="80.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets top="18.0"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center Section -->
+    <center>
+        <VBox spacing="12.0" style="-fx-background-color: #FAF8F3;">
+            <padding>
+                <Insets bottom="25.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <Label text="Available Rooms" style="-fx-text-fill: #321F08;">
+                <font>
+                    <Font name="Times New Roman Bold" size="18.0"/>
+                </font>
+            </Label>
+
+            <TableView fx:id="roomsTable" prefHeight="350.0" style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white;">
+                <columns>
+                    <TableColumn fx:id="roomNumberColumn" text="Room Number" prefWidth="120.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                    <TableColumn fx:id="roomTypeColumn" text="Type" prefWidth="130.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                    <TableColumn fx:id="priceColumn" text="Price/Night" prefWidth="120.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                    <TableColumn fx:id="statusColumn" text="Status" prefWidth="110.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+                <Button fx:id="bookButton" text="Book Selected Room" onAction="#handleBook" prefWidth="170.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/>
+                    </padding>
+                </Button>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

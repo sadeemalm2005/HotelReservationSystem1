@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminDashboardController"
+            style="-fx-background-color: #FAF8F3;">
+
+    <top>
+        <VBox spacing="15.0" style="-fx-background-color: #FAF8F3; -fx-border-color: #321F08; -fx-border-width: 0 0 2 0;">
+            <padding>
+                <Insets bottom="20.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <Label text="Administrator Dashboard" style="-fx-text-fill: #321F08;">
+                <font><Font name="Times New Roman Bold" size="26.0"/></font>
+            </Label>
+
+            <Label fx:id="welcomeLabel" text="Welcome, Administrator" style="-fx-text-fill: #321F08;">
+                <font><Font name="Times New Roman" size="16.0"/></font>
+            </Label>
+
+            <HBox spacing="12.0">
+                <VBox.margin><Insets top="10.0"/></VBox.margin>
+                <Button fx:id="userManagementButton" text="User Management" onAction="#handleUserManagement" prefWidth="160.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    <padding><Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/></padding>
+                </Button>
+                <Button fx:id="reportsButton" text="Reports" onAction="#handleReports" prefWidth="120.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    <padding><Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/></padding>
+                </Button>
+                <Button fx:id="roomTypeManagementButton" text="Room Types" onAction="#handleRoomTypeManagement" prefWidth="140.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    <padding><Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/></padding>
+                </Button>
+                <Button fx:id="serviceManagementButton" text="Services" onAction="#handleServiceManagement" prefWidth="120.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    <padding><Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/></padding>
+                </Button>
+                <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" prefWidth="100.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    <padding><Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/></padding>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <GridPane hgap="30.0" vgap="30.0" style="-fx-background-color: #FAF8F3;">
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
+            </padding>
+
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="250.0" prefHeight="150.0"
+                  GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/></padding>
+                <Label text="Total Guests" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="16.0"/></font>
+                </Label>
+                <Label fx:id="totalGuestsLabel" text="0" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="36.0"/></font>
+                </Label>
+            </VBox>
+
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="250.0" prefHeight="150.0"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/></padding>
+                <Label text="Total Rooms" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="16.0"/></font>
+                </Label>
+                <Label fx:id="totalRoomsLabel" text="0" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="36.0"/></font>
+                </Label>
+            </VBox>
+
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="250.0" prefHeight="150.0"
+                  GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/></padding>
+                <Label text="Occupied Rooms" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="16.0"/></font>
+                </Label>
+                <Label fx:id="occupiedRoomsLabel" text="0" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="36.0"/></font>
+                </Label>
+            </VBox>
+
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="250.0" prefHeight="150.0"
+                  GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/></padding>
+                <Label text="Active Reservations" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="16.0"/></font>
+                </Label>
+                <Label fx:id="activeReservationsLabel" text="0" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="36.0"/></font>
+                </Label>
+            </VBox>
+
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="530.0" prefHeight="150.0"
+                  GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2">
+                <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/></padding>
+                <Label text="Total Revenue" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="18.0"/></font>
+                </Label>
+                <Label fx:id="totalRevenueLabel" text="0.00" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman Bold" size="42.0"/></font>
+                </Label>
+            </VBox>
+        </GridPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,322 @@
+===============================================================================
+                    HOTEL RESERVATION SYSTEM
+                      PROJECT INTRODUCTION
+===============================================================================
+
+PROJECT OVERVIEW
+----------------
+The Hotel Reservation System is a comprehensive desktop application designed
+to streamline hotel operations and enhance guest experiences. Built using
+JavaFX for the user interface and Oracle Database for data persistence, this
+system provides a complete solution for managing hotel reservations, guest
+information, room inventory, and financial transactions.
+
+This project was developed as part of the CS313 course requirements and
+demonstrates advanced object-oriented programming concepts, database
+integration, and modern UI design principles.
+
+
+PURPOSE AND OBJECTIVES
+-----------------------
+The primary objectives of this system are to:
+
+1. Automate hotel reservation processes to reduce manual errors
+2. Provide role-based access control for different user types
+3. Enable efficient room inventory management
+4. Facilitate guest self-service for booking and managing reservations
+5. Generate comprehensive reports for business intelligence
+6. Demonstrate practical application of core Java programming concepts
+
+
+TARGET USERS
+------------
+The system is designed for three distinct user roles:
+
+1. GUESTS
+   - Search and book available rooms
+   - View and manage personal reservations
+   - Cancel bookings when needed
+   - Access booking history
+
+2. RECEPTIONISTS
+   - Check guests in and out
+   - Process payments
+   - Manage room availability
+   - Handle guest inquiries
+   - View all system reservations
+
+3. ADMINISTRATORS
+   - Monitor system statistics and performance
+   - Manage users (create, update, delete accounts)
+   - Configure room types and services
+   - Generate business reports (revenue, occupancy, guest analytics)
+   - Oversee all system operations
+
+
+KEY FEATURES
+------------
+
+RESERVATION MANAGEMENT
+- Real-time room availability checking
+- Date-based search with conflict prevention
+- Automatic price calculation based on room type and duration
+- Multiple reservation statuses: Pending, Confirmed, Checked-In, Checked-Out, Cancelled
+
+ROOM MANAGEMENT
+- Categorization by room types (Single, Double, Suite, etc.)
+- Dynamic pricing based on room type and season
+- Real-time status tracking (Available, Occupied, Maintenance, Reserved)
+- Capacity and amenity information
+
+USER MANAGEMENT
+- Secure authentication and authorization
+- Role-based access control
+- User profile management
+- Search and filter capabilities by role
+
+FINANCIAL MANAGEMENT
+- Integrated payment processing
+- Multiple payment methods support
+- Automatic receipt generation
+- Revenue tracking and reporting
+
+REPORTING & ANALYTICS
+- Revenue reports with date range filtering
+- Occupancy rate analysis
+- Guest statistics and demographics
+- Room status summaries
+- Export functionality for business intelligence
+
+
+TECHNICAL ARCHITECTURE
+-----------------------
+
+PROGRAMMING LANGUAGE
+- Java SE 25 (compatible with Java 11+)
+- Object-oriented design principles
+
+USER INTERFACE
+- JavaFX 21 for rich desktop UI
+- FXML for declarative UI design
+- Consistent color scheme: Dark Brown (#321F08) and Light Beige (#FAF8F3)
+- Times New Roman font family for professional appearance
+
+DATABASE
+- Oracle Database 21c Express Edition
+- JDBC for database connectivity
+- Prepared statements for SQL injection prevention
+- Connection pooling for performance
+
+DESIGN PATTERNS
+- Model-View-Controller (MVC) architecture
+- Singleton pattern for database connections
+- Factory pattern for user object creation
+- Observer pattern for UI updates
+
+
+JAVA CONCEPTS DEMONSTRATED
+---------------------------
+
+1. INHERITANCE
+   - Abstract User class with concrete subclasses (Guest, Receptionist, Admin)
+   - Code reusability and polymorphic behavior
+
+2. POLYMORPHISM
+   - Role-based method overriding
+   - Dynamic method dispatch
+   - Interface implementation (Comparable)
+
+3. COMPOSITION
+   - Room HAS-A RoomType relationship
+   - Strong ownership and lifecycle management
+
+4. COLLECTIONS FRAMEWORK
+   - ArrayList for dynamic lists of objects
+   - HashSet for ensuring username uniqueness
+   - TreeSet for automatic sorting (room types by price)
+   - LinkedList for queue operations
+   - HashMap for key-value associations
+   - Iterator for collection traversal
+
+5. INTERFACES
+   - Comparable interface implementation
+   - Custom comparators for sorting
+
+6. EXCEPTION HANDLING
+   - Custom exception classes
+   - Try-catch-finally blocks
+   - Proper resource management
+   - User-friendly error messages
+
+7. JDBC (Database Connectivity)
+   - Connection management
+   - PreparedStatement for parameterized queries
+   - ResultSet processing
+   - Transaction handling
+   - SQL aggregate functions (COUNT, SUM, AVG, GROUP BY)
+
+8. FILE I/O
+   - Reading configuration files
+   - Exporting reports
+
+9. JAVAFX UI COMPONENTS
+   - TableView for data display
+   - DatePicker for date selection
+   - ComboBox for dropdown menus
+   - Scene navigation and management
+
+
+DATABASE SCHEMA
+---------------
+
+CORE TABLES:
+- USERS: Authentication and role information
+- GUESTS: Guest-specific details (name, ID, address)
+- ROOMS: Room inventory with status and pricing
+- ROOM_TYPES: Room categories and specifications
+- RESERVATIONS: Booking records with dates and status
+- PAYMENTS: Financial transaction records
+- SERVICES: Additional hotel services (room service, spa, etc.)
+
+RELATIONSHIPS:
+- Users have a one-to-one relationship with role-specific tables
+- Rooms belong to room types (many-to-one)
+- Guests create reservations (one-to-many)
+- Reservations reference rooms (many-to-one)
+- Reservations have payments (one-to-one)
+
+
+SYSTEM REQUIREMENTS
+-------------------
+
+SOFTWARE:
+- Java Development Kit (JDK) 11 or higher
+- JavaFX SDK 21
+- Oracle Database 21c Express Edition
+- NetBeans IDE 23 (or any Java IDE)
+- Oracle JDBC Driver (ojdbc8.jar)
+
+HARDWARE:
+- Processor: Intel Core i3 or equivalent
+- RAM: 4GB minimum (8GB recommended)
+- Storage: 500MB for application + 2GB for database
+- Display: 1280x720 minimum resolution
+
+
+SECURITY FEATURES
+-----------------
+- Password-protected user accounts
+- Role-based access control (RBAC)
+- SQL injection prevention through PreparedStatements
+- Input validation on all forms
+- Secure session management
+- Database connection encryption
+
+
+FUTURE ENHANCEMENTS
+-------------------
+Potential improvements for future versions:
+
+1. Email notifications for booking confirmations
+2. Online payment gateway integration
+3. Multi-language support
+4. Mobile application companion
+5. Advanced reporting with charts and graphs
+6. Integration with third-party booking platforms
+7. Loyalty program management
+8. Housekeeping management module
+9. Inventory management for supplies
+10. Customer feedback and review system
+
+
+DEVELOPMENT TIMELINE
+--------------------
+- Requirements Analysis: Week 1
+- Database Design: Week 2
+- Model Classes Implementation: Week 3
+- UI Design (FXML): Week 4
+- Controller Implementation: Week 5-6
+- Testing and Bug Fixes: Week 7
+- Documentation: Week 8
+
+
+TESTING CREDENTIALS
+-------------------
+The system comes with pre-populated test data:
+
+ADMIN ACCOUNTS:
+- Username: admin1 / Password: password123
+- Username: admin2 / Password: password123
+
+RECEPTIONIST ACCOUNTS:
+- Username: receptionist1 / Password: password123
+- Username: receptionist2 / Password: password123
+
+GUEST ACCOUNTS:
+- Username: guest1 / Password: password123
+- Username: guest2 / Password: password123
+
+
+PROJECT STRUCTURE
+-----------------
+HotelReservationSystem1/
+├── src/
+│   ├── hotelreservationsystem1/
+│   │   ├── HotelReservationSystem1.java (Main class)
+│   │   ├── models/ (User, Guest, Room, Reservation, etc.)
+│   │   └── exceptions/ (Custom exception classes)
+│   ├── controllers/
+│   │   ├── LoginController.java
+│   │   ├── GuestDashboardController.java
+│   │   ├── AdminDashboardController.java
+│   │   ├── RoomSearchController.java
+│   │   ├── UserManagementController.java
+│   │   └── ... (other controllers)
+│   ├── database/
+│   │   └── DatabaseConnection.java
+│   └── views/
+│       ├── Login.fxml
+│       ├── GuestDashboard.fxml
+│       ├── AdminDashboard.fxml
+│       └── ... (other FXML files)
+├── database_schema.sql
+├── sample_data.sql
+├── UML_CLASS_DIAGRAM.txt
+└── PROJECT_INTRODUCTION.txt
+
+
+LEARNING OUTCOMES
+-----------------
+Through this project, students will gain hands-on experience with:
+
+1. Object-oriented programming principles
+2. Database design and normalization
+3. SQL query writing and optimization
+4. JavaFX UI development
+5. MVC architecture implementation
+6. Exception handling best practices
+7. JDBC API usage
+8. Software design patterns
+9. Version control with Git
+10. Project documentation
+
+
+ACKNOWLEDGMENTS
+---------------
+This project was developed as part of the CS313 course curriculum. Special
+thanks to course instructors and peers for their guidance and feedback
+throughout the development process.
+
+
+SUPPORT AND DOCUMENTATION
+--------------------------
+For additional documentation, please refer to:
+- UML_CLASS_DIAGRAM.txt: Complete system architecture
+- DATABASE_SETUP_GUIDE.md: Database installation instructions
+- QUICK_START_GUIDE.md: User guide for running the application
+- Javadoc comments in source code
+
+
+===============================================================================
+© 2025 Hotel Reservation System - CS313 Course Project
+===============================================================================

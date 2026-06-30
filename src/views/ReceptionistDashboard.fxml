@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReceptionistDashboardController"
+            style="-fx-background-color: #FAF8F3;">
+
+    <!-- Top Section -->
+    <top>
+        <VBox spacing="15.0" style="-fx-background-color: #FAF8F3; -fx-border-color: #321F08; -fx-border-width: 0 0 2 0;">
+            <padding>
+                <Insets bottom="20.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <Label text="Receptionist Dashboard" style="-fx-text-fill: #321F08;">
+                <font>
+                    <Font name="Times New Roman Bold" size="26.0"/>
+                </font>
+            </Label>
+
+            <Label fx:id="welcomeLabel" text="Welcome, Receptionist" style="-fx-text-fill: #321F08;">
+                <font>
+                    <Font name="Times New Roman" size="16.0"/>
+                </font>
+            </Label>
+
+            <HBox spacing="12.0">
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+                <Button fx:id="checkInOutButton" text="Check-In/Out" onAction="#handleCheckInOut" prefWidth="140.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/>
+                    </padding>
+                </Button>
+                <Button fx:id="roomManagementButton" text="Room Management" onAction="#handleRoomManagement" prefWidth="160.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/>
+                    </padding>
+                </Button>
+                <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" prefWidth="100.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/>
+                    </padding>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center Section -->
+    <center>
+        <HBox spacing="20.0" style="-fx-background-color: #FAF8F3;">
+            <padding>
+                <Insets bottom="25.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <!-- Today's Check-Ins -->
+            <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                <Label text="Today's Check-Ins" style="-fx-text-fill: #321F08;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0"/>
+                    </font>
+                </Label>
+
+                <TableView fx:id="todayCheckInsTable" prefHeight="250.0" style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white;">
+                    <columns>
+                        <TableColumn fx:id="checkInIdColumn" text="ID" prefWidth="60.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                        <TableColumn fx:id="checkInGuestColumn" text="Guest" prefWidth="150.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                        <TableColumn fx:id="checkInRoomColumn" text="Room" prefWidth="100.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                    </columns>
+                </TableView>
+
+                <!-- Today's Check-Outs -->
+                <Label text="Today's Check-Outs" style="-fx-text-fill: #321F08;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0"/>
+                    </VBox.margin>
+                </Label>
+
+                <TableView fx:id="todayCheckOutsTable" prefHeight="250.0" style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white;">
+                    <columns>
+                        <TableColumn fx:id="checkOutIdColumn" text="ID" prefWidth="60.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                        <TableColumn fx:id="checkOutGuestColumn" text="Guest" prefWidth="150.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                        <TableColumn fx:id="checkOutRoomColumn" text="Room" prefWidth="100.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Pending Tasks -->
+            <VBox spacing="12.0" prefWidth="300.0">
+                <Label text="Pending Tasks" style="-fx-text-fill: #321F08;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0"/>
+                    </font>
+                </Label>
+
+                <ListView fx:id="pendingTasksListView" prefHeight="540.0" style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

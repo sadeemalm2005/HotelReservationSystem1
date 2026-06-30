@@ -1,0 +1,3 @@
+@echo off
+echo Starting Hotel Reservation System...
+"C:\Program Files\Zulu\zulu-25\bin\java" -jar "dist\HotelReservationSystem1.jar"

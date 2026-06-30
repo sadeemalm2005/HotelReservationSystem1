@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReportsController"
+            style="-fx-background-color: #FAF8F3;">
+
+    <!-- Top Section -->
+    <top>
+        <VBox spacing="15.0" style="-fx-background-color: #FAF8F3; -fx-border-color: #321F08; -fx-border-width: 0 0 2 0;">
+            <padding>
+                <Insets bottom="20.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <Label text="Reports &amp; Analytics" style="-fx-text-fill: #321F08;">
+                <font>
+                    <Font name="Times New Roman Bold" size="26.0"/>
+                </font>
+            </Label>
+
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+
+                <VBox spacing="5.0">
+                    <Label text="Report Type" style="-fx-text-fill: #321F08;">
+                        <font>
+                            <Font name="Times New Roman" size="13.0"/>
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="reportTypeComboBox" prefWidth="180.0"
+                             style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </VBox>
+
+                <VBox spacing="5.0">
+                    <Label text="Start Date" style="-fx-text-fill: #321F08;">
+                        <font>
+                            <Font name="Times New Roman" size="13.0"/>
+                        </font>
+                    </Label>
+                    <DatePicker fx:id="startDatePicker" prefWidth="140.0"
+                               style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </VBox>
+
+                <VBox spacing="5.0">
+                    <Label text="End Date" style="-fx-text-fill: #321F08;">
+                        <font>
+                            <Font name="Times New Roman" size="13.0"/>
+                        </font>
+                    </Label>
+                    <DatePicker fx:id="endDatePicker" prefWidth="140.0"
+                               style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </VBox>
+
+                <Button fx:id="generateButton" text="Generate Report" onAction="#handleGenerate" prefWidth="150.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets top="18.0"/>
+                    </HBox.margin>
+                </Button>
+
+                <Button fx:id="exportButton" text="Export" onAction="#handleExport" prefWidth="100.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets top="18.0"/>
+                    </HBox.margin>
+                </Button>
+
+                <Button fx:id="backButton" text="Back" onAction="#handleBack" prefWidth="80.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets top="18.0"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center Section -->
+    <center>
+        <VBox spacing="20.0" style="-fx-background-color: #FAF8F3;">
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+            </padding>
+
+            <!-- Summary Statistics -->
+            <GridPane hgap="25.0" vgap="20.0">
+                <columnConstraints>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                </columnConstraints>
+                <VBox spacing="8.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="200.0" prefHeight="100.0"
+                      GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/></padding>
+                    <Label text="Total Bookings" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="totalBookingsLabel" text="0" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman Bold" size="32.0"/></font>
+                    </Label>
+                </VBox>
+
+                <VBox spacing="8.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="200.0" prefHeight="100.0"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/></padding>
+                    <Label text="Total Revenue" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="totalRevenueLabel" text="0.00" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman Bold" size="32.0"/></font>
+                    </Label>
+                </VBox>
+
+                <VBox spacing="8.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="200.0" prefHeight="100.0"
+                      GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/></padding>
+                    <Label text="Occupancy Rate" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="occupancyRateLabel" text="0%" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman Bold" size="32.0"/></font>
+                    </Label>
+                </VBox>
+
+                <VBox spacing="8.0" style="-fx-background-color: white; -fx-border-color: #321F08; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" prefWidth="200.0" prefHeight="100.0"
+                      GridPane.columnIndex="3" GridPane.rowIndex="0">
+                    <padding><Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/></padding>
+                    <Label text="Avg Stay Duration" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman Bold" size="14.0"/></font>
+                    </Label>
+                    <Label fx:id="avgStayLabel" text="0 days" style="-fx-text-fill: #321F08;">
+                        <font><Font name="Times New Roman Bold" size="32.0"/></font>
+                    </Label>
+                </VBox>
+            </GridPane>
+
+            <!-- Report Output -->
+            <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+                <Label text="Report Details" style="-fx-text-fill: #321F08;">
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0"/>
+                    </font>
+                </Label>
+
+                <TextArea fx:id="reportOutputArea" wrapText="true" editable="false" prefHeight="350.0"
+                         style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-background-color: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 13; -fx-control-inner-background: white;"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

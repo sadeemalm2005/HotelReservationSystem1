@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RoomManagementController"
+            style="-fx-background-color: #FAF8F3;">
+
+    <top>
+        <VBox spacing="15.0" style="-fx-background-color: #FAF8F3; -fx-border-color: #321F08; -fx-border-width: 0 0 2 0;">
+            <padding>
+                <Insets bottom="20.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <Label text="Room Management" style="-fx-text-fill: #321F08;">
+                <font><Font name="Times New Roman Bold" size="26.0"/></font>
+            </Label>
+
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+                <Label text="Filter by Status:" style="-fx-text-fill: #321F08;">
+                    <font><Font name="Times New Roman" size="14.0"/></font>
+                </Label>
+                <ComboBox fx:id="statusFilterComboBox" prefWidth="150.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                <ComboBox fx:id="newStatusComboBox" prefWidth="150.0" promptText="New Status" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                <Button fx:id="updateStatusButton" text="Update Status" onAction="#handleUpdateStatus" prefWidth="130.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font><Font name="Times New Roman Bold" size="13.0"/></font>
+                    <padding><Insets bottom="8.0" left="12.0" right="12.0" top="8.0"/></padding>
+                </Button>
+                <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefresh" prefWidth="100.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font><Font name="Times New Roman Bold" size="13.0"/></font>
+                    <padding><Insets bottom="8.0" left="12.0" right="12.0" top="8.0"/></padding>
+                </Button>
+                <Button fx:id="backButton" text="Back" onAction="#handleBack" prefWidth="80.0"
+                        style="-fx-background-color: #321F08; -fx-text-fill: #FAF8F3; -fx-cursor: hand; -fx-border-radius: 3; -fx-background-radius: 3;">
+                    <font><Font name="Times New Roman Bold" size="13.0"/></font>
+                    <padding><Insets bottom="8.0" left="12.0" right="12.0" top="8.0"/></padding>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12.0" style="-fx-background-color: #FAF8F3;">
+            <padding>
+                <Insets bottom="25.0" left="30.0" right="30.0" top="25.0"/>
+            </padding>
+
+            <TableView fx:id="roomsTable" prefHeight="450.0" style="-fx-border-color: #D3D3D3; -fx-border-width: 1;">
+                <columns>
+                    <TableColumn fx:id="roomNumberColumn" text="Room Number" prefWidth="130.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                    <TableColumn fx:id="roomTypeColumn" text="Type" prefWidth="150.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                    <TableColumn fx:id="floorColumn" text="Floor" prefWidth="100.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                    <TableColumn fx:id="statusColumn" text="Status" prefWidth="150.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 13;"/>
+                </columns>
+            </TableView>
+
+            <TextArea fx:id="notesArea" prefHeight="80.0" wrapText="true" editable="false"
+                     style="-fx-border-color: #D3D3D3; -fx-border-width: 1; -fx-font-family: 'Times New Roman'; -fx-font-size: 12;"/>
+        </VBox>
+    </center>
+</BorderPane>

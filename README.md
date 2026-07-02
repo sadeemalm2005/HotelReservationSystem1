@@ -8,12 +8,7 @@
 
 <p align="center">
 
-<img src="https://img.shields.io/badge/Java-17-8B4513?style=for-the-badge&logo=openjdk&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaFX-Desktop-B8860B?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Oracle-21c-A0522D?style=for-the-badge&logo=oracle&logoColor=white"/>
-<img src="https://img.shields.io/badge/JDBC-Database-C9A227?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/MVC-Architecture-6D4C41?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge"/>
+
 
 </p>
 
@@ -380,32 +375,19 @@ The following features could be added in future versions:
 
 ---
 
-# 🤝 Team Project
-
-This project was collaboratively developed as part of a university **Software Engineering** course.
-
-The project involved the complete software development lifecycle, including:
-
-- System Analysis
-- UML Design
-- Database Design
-- JavaFX Interface Development
-- Database Integration using JDBC
-- Testing and Debugging
-
 ---
 
-# 📄 License
+# 👥 Team Project
 
-This project was developed for **educational purposes only** as part of a university course.
+This project was collaboratively developed as part of a university **Software Engineering** course.
 
 ---
 
 <div align="center">
 
-## ⭐ Thank You for Visiting!
+### ⭐ Thank You for Visiting This Repository!
 
-If you found this project interesting, consider giving it a ⭐ on GitHub.
+If you found this project helpful or interesting, consider giving it a ⭐ on GitHub.
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:C9A227,50:8D6E63,100:3E2723&height=120&section=footer"/>
 

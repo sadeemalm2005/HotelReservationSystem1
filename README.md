@@ -4,17 +4,11 @@
 
 # 🏨 Hotel Reservation System
 
-### Modern Desktop Application for Hotel Management
+### Role-Based Hotel Reservation & Management System
 
-<p align="center">
+A desktop application developed using **Java**, **JavaFX**, and **Oracle Database** to simplify hotel operations through an intuitive reservation and management system.
 
-
-
-</p>
-
-A role-based desktop application developed using **Java**, **JavaFX**, and **Oracle Database** to simplify hotel operations through an intuitive and efficient reservation management system.
-
-Designed following the **MVC (Model–View–Controller)** architecture, the system provides dedicated interfaces for **Administrators**, **Receptionists**, and **Guests**, ensuring a seamless hotel management experience.
+Designed following the **Model–View–Controller (MVC)** architecture, the system provides dedicated interfaces for **Administrators**, **Receptionists**, and **Guests**, ensuring an efficient, secure, and user-friendly hotel management experience.
 
 </div>
 
@@ -28,35 +22,38 @@ Designed following the **MVC (Model–View–Controller)** architecture, the sys
 - [🛠️ Tech Stack](#️-tech-stack)
 - [🏗️ System Architecture](#️-system-architecture)
 - [📐 UML Class Diagram](#-uml-class-diagram)
-- [📸 Application Preview](#-application-preview)
+- [📷 User Interface Preview](#-user-interface-preview)
 - [🗄️ Database](#️-database)
 - [🚀 Getting Started](#-getting-started)
 - [📂 Project Structure](#-project-structure)
-- [🤝 Team Project](#-team-project)
-- [📄 License](#-license)
+- [💡 Object-Oriented Programming Concepts](#-object-oriented-programming-concepts)
+- [🎯 Future Improvements](#-future-improvements)
+- [👥 Team Project](#-team-project)
+- [👩‍💻 Author](#-author)
 
 ---
 
 # 📖 Project Overview
 
-The **Hotel Reservation System** is a desktop application designed to streamline hotel operations through an intuitive graphical user interface.
+The **Hotel Reservation System** is a desktop-based application developed as part of a **Software Engineering** course.
 
-The system enables hotel staff to efficiently manage rooms, reservations, guests, and hotel services while allowing guests to search for available rooms and manage their reservations.
+The system simplifies hotel operations by allowing administrators, receptionists, and guests to interact through dedicated dashboards while maintaining centralized data management using **Oracle Database**.
 
-Built using **JavaFX** and integrated with **Oracle Database**, the application follows the **MVC architecture**, promoting clean code organization, scalability, and maintainability.
+Developed with **JavaFX**, the application delivers a modern graphical user interface while following the **MVC (Model–View–Controller)** architectural pattern to achieve clean code organization, maintainability, and scalability.
 
 ---
 
 # ✨ System Highlights
 
-- 🔑 Secure Role-Based Authentication
+- 🔐 Secure Role-Based Authentication
 - 🏨 Hotel Room Management
 - 📅 Reservation Management
+- 👥 User Management
 - 👤 Guest Reservation Portal
+- 🛎️ Receptionist Dashboard
 - 👨‍💼 Administrator Dashboard
-- 👨‍💻 Receptionist Dashboard
+- 📊 Reports & Statistics
 - 🛏️ Room Availability Tracking
-- 📊 Hotel Statistics & Reports
 - 🗄️ Oracle Database Integration
 - 🧩 MVC Architecture
 - 🎨 Modern JavaFX User Interface
@@ -67,35 +64,36 @@ Built using **JavaFX** and integrated with **Oracle Database**, the application 
 
 ## 👨‍💼 Administrator
 
-- Manage system users
-- View hotel statistics
-- Generate reports
+- Secure authentication
+- Manage users
 - Manage room types
+- Manage hotel rooms
 - Manage hotel services
+- Generate reports
 - Monitor reservations
-- Administrative dashboard
+- Access administrative dashboard
 
 ---
 
 ## 👨‍💻 Receptionist
 
-- Check guests in
-- Check guests out
-- Manage room availability
-- Search reservations
-- View daily activities
-- Handle front desk operations
+- Guest Check-In
+- Guest Check-Out
+- Reservation management
+- Room availability monitoring
+- Daily hotel operations
+- Customer assistance
 
 ---
 
 ## 👤 Guest
 
 - Search available rooms
-- Book rooms
+- Book hotel rooms
 - View reservation history
+- Manage reservations
 - Cancel reservations
-- Manage bookings
-- Access personal dashboard
+- Personal dashboard
 
 ---
 
@@ -105,15 +103,16 @@ Built using **JavaFX** and integrated with **Oracle Database**, the application 
 |------------|----------|
 | ☕ Java | Core application development |
 | 🎨 JavaFX | Desktop graphical user interface |
-| 📄 FXML | UI layout design |
-| 🗄️ Oracle Database 21c XE | Data storage |
+| 📄 FXML | User interface layout |
+| 🗄️ Oracle Database 21c XE | Database management |
 | 🔌 JDBC | Database connectivity |
-| 🧩 MVC Architecture | Software architecture |
-| 🛠️ Apache Ant | Project build tool |
+| 🧩 MVC | Software architecture |
+| 🛠️ Apache Ant | Build automation |
 | 💻 NetBeans IDE | Development environment |
-| 📐 draw.io | UML Class Diagram |
+| 📐 draw.io | UML design |
 
 ---
+
 # 🏗️ System Architecture
 
 The application follows the **MVC (Model–View–Controller)** architecture, separating the user interface, business logic, and database operations.
@@ -140,19 +139,18 @@ The application follows the **MVC (Model–View–Controller)** architecture, se
 
 ### Architecture Benefits
 
-- Separation of concerns
-- Easier maintenance
-- Improved scalability
-- Better code organization
-- Enhanced reusability
+- Clean separation of concerns
+- Better maintainability
+- Easier scalability
+- Improved code organization
+- Reusable components
 
 ---
-
 # 📐 UML Class Diagram
 
-The system was designed following Object-Oriented Programming principles.
+The system was designed following **Object-Oriented Programming (OOP)** principles.
 
-The UML Class Diagram illustrates the relationships between the system classes and was created during the design phase using **draw.io**.
+The UML Class Diagram illustrates the relationships between the system classes and reflects the overall software architecture designed during the analysis and implementation phases.
 
 <p align="center">
 <img src="docs/UML-Class-Diagram.png" width="950"/>
@@ -160,7 +158,11 @@ The UML Class Diagram illustrates the relationships between the system classes a
 
 ---
 
- # 📷 User Interface Preview
+# 📷 User Interface Preview
+
+The following screenshots demonstrate the main interfaces of the application.
+
+---
 
 ## 🏠 Home Page
 
@@ -168,7 +170,7 @@ The UML Class Diagram illustrates the relationships between the system classes a
 <img src="screenshots/01-Home-Page.jpg" width="900"/>
 </p>
 
-> The landing page introduces the system and provides users with quick access to the login page.
+> The application's landing page provides a welcoming interface and allows users to navigate directly to the login screen.
 
 ---
 
@@ -178,7 +180,11 @@ The UML Class Diagram illustrates the relationships between the system classes a
 <img src="screenshots/02-Login.jpg" width="900"/>
 </p>
 
-> Secure authentication for **Administrators**, **Receptionists**, and **Guests**.
+> Secure authentication system supporting three different user roles:
+>
+> - Administrator
+> - Receptionist
+> - Guest
 
 ---
 
@@ -188,7 +194,7 @@ The UML Class Diagram illustrates the relationships between the system classes a
 <img src="screenshots/03-Admin-Dashboard.jpg" width="900"/>
 </p>
 
-> Displays hotel statistics including rooms, reservations, guests, and total revenue.
+> Provides administrators with an overview of hotel operations including reservations, guests, rooms, and system statistics.
 
 ---
 
@@ -198,7 +204,7 @@ The UML Class Diagram illustrates the relationships between the system classes a
 <img src="screenshots/04-User-Management.jpg" width="900"/>
 </p>
 
-> Allows administrators to manage user accounts through CRUD operations.
+> Enables administrators to create, update, search, and manage system users through full CRUD operations.
 
 ---
 
@@ -208,17 +214,17 @@ The UML Class Diagram illustrates the relationships between the system classes a
 <img src="screenshots/05-Guest-Dashboard.jpg" width="900"/>
 </p>
 
-> Guests can quickly access their reservations or search for available rooms.
+> Guests can access their personal dashboard to search rooms, create reservations, and manage existing bookings.
 
 ---
 
-## 🛏️ Search & Book Rooms
+## 🛏️ Room Search
 
 <p align="center">
 <img src="screenshots/06-Room-Search.jpg" width="900"/>
 </p>
 
-> Browse available rooms based on selected dates and room type before completing a reservation.
+> Displays available rooms based on user preferences while providing pricing and room details before booking.
 
 ---
 
@@ -228,7 +234,7 @@ The UML Class Diagram illustrates the relationships between the system classes a
 <img src="screenshots/07-My-Reservations.jpg" width="900"/>
 </p>
 
-> View reservation history, reservation details, and cancel bookings when applicable.
+> Allows guests to review reservation history, view booking details, and cancel reservations when applicable.
 
 ---
 
@@ -238,7 +244,7 @@ The UML Class Diagram illustrates the relationships between the system classes a
 <img src="screenshots/08-Receptionist-Dashboard.jpg" width="900"/>
 </p>
 
-> Receptionists can manage daily hotel operations, including check-ins and check-outs.
+> Receptionists can efficiently manage daily hotel operations including reservations, guest services, and room availability.
 
 ---
 
@@ -248,46 +254,60 @@ The UML Class Diagram illustrates the relationships between the system classes a
 <img src="screenshots/09-CheckIn-CheckOut.jpg" width="900"/>
 </p>
 
-> Complete guest check-in and check-out procedures while updating reservation status automatically.
+> Streamlines the guest check-in and check-out process while automatically updating reservation and room status.
+
+---
+# 🗄️ Database
+
+The application uses **Oracle Database 21c XE** as its relational database management system.
+
+The database is designed to ensure data integrity, maintain relationships between entities, and efficiently manage hotel operations.
 
 ---
 
-# 🗄️ Database
+## Main Database Entities
 
-The application stores all hotel information in **Oracle Database 21c XE**.
+| Entity | Description |
+|---------|-------------|
+| USERS | Stores login credentials and user roles |
+| GUESTS | Guest personal information |
+| ADMINS | Administrator information |
+| RECEPTIONISTS | Receptionist information |
+| ROOM_TYPES | Room categories and pricing |
+| ROOMS | Hotel room details |
+| RESERVATIONS | Reservation records |
+| PAYMENTS | Payment transactions |
+| SERVICES | Hotel services |
+| RESERVATION_SERVICES | Relationship between reservations and services |
 
-### Main Entities
+---
 
-- Users
-- Guests
-- Receptionists
-- Administrators
-- Rooms
-- Room Types
-- Reservations
-- Payments
-- Hotel Services
-
-### Database Features
+## Database Features
 
 - Relational database design
-- Primary and foreign key constraints
-- Data integrity
-- Efficient reservation management
-- Optimized queries using JDBC
+- Primary & Foreign Key constraints
+- Data integrity enforcement
+- Normalized database schema
+- Oracle Sequences for ID generation
+- JDBC connectivity
+- Sample dataset for testing
 
-  # 🚀 Getting Started
+---
 
-Follow these steps to set up and run the project locally.
+# 🚀 Getting Started
+
+Follow the steps below to run the project locally.
+
+---
 
 ## Prerequisites
 
-Before running the project, make sure you have:
+Before running the application, ensure the following software is installed:
 
-- Java JDK 17 or later
-- NetBeans IDE
+- Java JDK 17 (or later)
 - JavaFX SDK
 - Oracle Database 21c XE
+- NetBeans IDE
 - Apache Ant
 
 ---
@@ -300,19 +320,51 @@ git clone https://github.com/sadeemalm2005/HotelReservationSystem.git
 
 ---
 
-## Configure the Database
+## Database Setup
 
-1. Install Oracle Database 21c XE.
-2. Create a new database user.
-3. Execute the SQL scripts:
+Run the following SQL scripts in Oracle Database:
 
-```
+```text
 database_schema.sql
 sample_data.sql
 ```
 
-4. Update the database connection settings inside the project if necessary.
-5. Run the application from NetBeans IDE.
+These scripts will:
+
+- Create all database tables
+- Create sequences
+- Create relationships
+- Insert sample data for testing
+
+---
+
+## Configure Database Connection
+
+Update the database credentials inside:
+
+```text
+src/database/DatabaseConnection.java
+```
+
+Example:
+
+```java
+private static final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
+private static final String USERNAME = "YOUR_USERNAME";
+private static final String PASSWORD = "YOUR_PASSWORD";
+```
+
+---
+
+## Run the Application
+
+Open the project in **NetBeans IDE** and run:
+
+```text
+HotelReservationSystem1.java
+```
+
+Alternatively, build the project using Apache Ant.
 
 ---
 
@@ -323,7 +375,10 @@ HotelReservationSystem
 │
 ├── docs/
 │   ├── UML-Class-Diagram.drawio
-│   └── UML-Class-Diagram.png
+│   ├── UML-Class-Diagram.png
+│   ├── DATABASE_SETUP_GUIDE.md
+│   ├── QUICK_START_GUIDE.md
+│   └── REQUIREMENTS_SPECIFICATION.md
 │
 ├── screenshots/
 │   ├── 01-Home-Page.jpg
@@ -337,10 +392,18 @@ HotelReservationSystem
 │   └── 09-CheckIn-CheckOut.jpg
 │
 ├── src/
+│   ├── controllers/
+│   ├── database/
+│   ├── hotelreservationsystem1/
+│   │   ├── exceptions/
+│   │   └── models/
+│   └── views/
 │
 ├── database_schema.sql
 ├── sample_data.sql
-│
+├── build.xml
+├── manifest.mf
+├── run.bat
 └── README.md
 ```
 
@@ -348,38 +411,41 @@ HotelReservationSystem
 
 # 💡 Object-Oriented Programming Concepts
 
-This project demonstrates several core Object-Oriented Programming concepts:
+This project applies several Object-Oriented Programming principles, including:
 
 - Encapsulation
 - Inheritance
 - Polymorphism
 - Abstraction
 - Exception Handling
+- Class Relationships
+- Separation of Concerns (MVC)
+
+These concepts contribute to creating a scalable, maintainable, and modular software architecture.
 
 ---
 
 # 🎯 Future Improvements
 
-The following features could be added in future versions:
+Potential enhancements for future versions include:
 
 - Online payment gateway integration
-- Email confirmation for reservations
-- Password recovery
-- QR code reservation confirmation
-- Room image gallery
+- Email notifications
+- Password encryption using BCrypt
+- QR Code reservation confirmation
 - Customer reviews and ratings
+- Room image gallery
+- Dashboard analytics
 - Multi-language support
 - Dark Mode
-- Analytics dashboard
-- Email notifications
+- Mobile application
+- Cloud database deployment
+- REST API integration
 
 ---
-
----
-
 # 👥 Team Project
 
-This project was collaboratively developed as part of a university **Software Engineering** course.
+This project was collaboratively developed as a university team project.
 
 ---
 
@@ -389,6 +455,6 @@ This project was collaboratively developed as part of a university **Software En
 
 If you found this project helpful or interesting, consider giving it a ⭐ on GitHub.
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:C9A227,50:8D6E63,100:3E2723&height=120&section=footer"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:C9A227,50:8D6E63,100:C9A227&height=120&section=footer"/>
 
 </div>
